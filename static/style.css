@@ -1,0 +1,116 @@
+
+html {
+      height: 100%;
+  }
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* background: linear-gradient(180deg,#b14582,#2213ab); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  background-image: url("./6925882_orig.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.login {
+  
+  border: 3px  solid #2ecc71;
+  background-color: #ffffff;
+  border-radius: 15px;
+  touch-action: manipulation;
+  text-align: center;
+  width: 50vh;
+  height: 90%;
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%; */
+  margin: 20%;
+}
+
+.login input {
+  display: block;
+  margin: 3% auto;
+  text-align: center;
+  background: none;
+  width: 60%;
+  border-radius: 0px;
+  padding: 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.login input[type="text"], .login input[type="password"] {
+  border: 2px solid #3498db;
+
+}
+
+.login input[type="submit"] {
+  border: 2px solid #2ecc71;
+  /* width: 150px; */
+  background-color:#2ecc71;
+  color: #ffffff;
+  margin: 4% auto;
+  cursor: pointer;
+}
+
+.login input[type="text"]:focus, .login input[type="password"]:focus {
+  border: 2px solid #2ecc71;
+  width: 80%;
+  transition: 0.5s;
+}
+
+.login input[type="submit"]:hover {
+  background-color: #d1d4d3;
+  margin: 4% auto;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.span1{
+  padding:12px 6px 200px 6px;
+  margin-left: 6px;
+  border-left: 1px solid;
+  font-size: 0;
+  }
+
+.hr1{
+  margin: 1% auto;
+  border: 1px solid rgb(121, 112, 112);
+}
+
+.box2 {
+  border: 2px solid #3498db;
+  display: block;
+  margin: 3% auto;
+  text-align: "";
+  background: none;
+  width: 60%;
+  border-radius: 0px;
+  /* padding: 12px; */
+  font-size: 200%;
+  outline: none;
+  /* font-size:40px; */
+}
+
+#submitButton {
+  border: 2px solid #2ecc71;
+  background-color: #2ecc71;
+  color: #ffffff;
+  margin: 0% auto;
+  cursor: pointer;
+  /* padding: 7px 150px; */
+  width: 68%;
+  font-size: 25px;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+#submitButton:hover {
+  background-color: #d1d4d3;
+}

