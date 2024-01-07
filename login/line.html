@@ -28,7 +28,7 @@
 </body>
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const ip = "http://"+ urlParams.get("ip");
+  const ip = urlParams.get("ip");
   const SQ = urlParams.get("login");
   document.addEventListener('DOMContentLoaded', function () {
         var loginForm = document.getElementById('loginForm');
